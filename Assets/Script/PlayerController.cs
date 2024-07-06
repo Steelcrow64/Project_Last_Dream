@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-public class OSCAR_controller : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float maximumSpeed;
@@ -98,5 +98,21 @@ public class OSCAR_controller : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
         }
     }
+
+    #region Change Material
+
+    [SerializeField] private MeshRenderer skin;
+    [SerializeField] private Material defaultSkinMat;
+
+    public void ChangeSkinMat (Material newSkinMat)
+    {
+        skin.material = newSkinMat;
+    }
+
+    public void ResetSkinMat()
+    {
+        ChangeSkinMat(defaultSkinMat);
+    }
+    #endregion
 }
 

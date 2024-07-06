@@ -2,20 +2,33 @@ using UnityEngine;
 
 public class ChangeColorPlayer : MonoBehaviour
 {
-    [SerializeField] Material myMaterial;
+    [SerializeField] Material enterMat;
+    [SerializeField] Material pressMat;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            myMaterial.color = Color.blue;
+            other.GetComponent<PlayerController>().ChangeSkinMat(enterMat);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                other.GetComponent<PlayerController>().ChangeSkinMat(pressMat);
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            myMaterial.color = Color.cyan;
+            other.GetComponent<PlayerController>().ResetSkinMat();
         }
     }
 
