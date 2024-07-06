@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
-    public void Restart()
+    private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (other.CompareTag("Player"))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
