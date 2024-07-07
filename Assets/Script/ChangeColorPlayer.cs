@@ -17,7 +17,7 @@ public class ChangeColorPlayer : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
                 other.GetComponent<PlayerController>().ChangeSkinMat(pressMat);
             }

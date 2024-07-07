@@ -50,8 +50,13 @@ public class PlayerController : MonoBehaviour
 
         float speed = inputMagnitude * maximumSpeed;
 
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
+            Physics.gravity = -Physics.gravity;
+
+            transform.Rotate(new Vector3(0, 0, 180), Space.Self);
+
+            /*
             if (mapControll)
             {
                 map.transform.rotation = Quaternion.Euler(0, 0, -180);
@@ -62,6 +67,7 @@ public class PlayerController : MonoBehaviour
                 map.transform.rotation = Quaternion.Euler(0, 0, 0);
                 mapControll = true;
             }
+            */
         }
 
         movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
