@@ -52,11 +52,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            /*
             Physics.gravity = -Physics.gravity;
 
             transform.Rotate(new Vector3(0, 0, 180), Space.Self);
+            */
 
-            /*
             if (mapControll)
             {
                 map.transform.rotation = Quaternion.Euler(0, 0, -180);
@@ -67,7 +68,6 @@ public class PlayerController : MonoBehaviour
                 map.transform.rotation = Quaternion.Euler(0, 0, 0);
                 mapControll = true;
             }
-            */
         }
 
         movementDirection = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDirection;
@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MeshRenderer skin;
     [SerializeField] private Material defaultSkinMat;
 
-    public void ChangeSkinMat (Material newSkinMat)
+    public void ChangeSkinMat(Material newSkinMat)
     {
         skin.material = newSkinMat;
     }
@@ -120,5 +120,13 @@ public class PlayerController : MonoBehaviour
         ChangeSkinMat(defaultSkinMat);
     }
     #endregion
+
+    public void ExitBuild()
+    {
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
+    }
 }
 
