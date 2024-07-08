@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
         float speed = inputMagnitude * maximumSpeed;
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             /*
             Physics.gravity = -Physics.gravity;
