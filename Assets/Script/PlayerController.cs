@@ -91,6 +91,11 @@ public class PlayerController : MonoBehaviour
 
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private void OnApplicationFocus(bool focus)
@@ -120,13 +125,5 @@ public class PlayerController : MonoBehaviour
         ChangeSkinMat(defaultSkinMat);
     }
     #endregion
-
-    public void ExitBuild()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
-    }
 }
 
