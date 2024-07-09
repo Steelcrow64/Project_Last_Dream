@@ -1,15 +1,17 @@
 using UnityEngine;
 
-public class ChangeColorPlayer : MonoBehaviour
+public class DialogueEffect : MonoBehaviour
 {
     [SerializeField] Material enterMat;
     [SerializeField] Material pressMat;
+    [SerializeField] private GameObject popUp;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerController>().ChangeSkinMat(enterMat);
+            //other.GetComponent<PlayerController>().ChangeSkinMat(enterMat);
+            popUp.SetActive(true);
         }
     }
 
@@ -29,6 +31,7 @@ public class ChangeColorPlayer : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().ResetSkinMat();
+            popUp.SetActive(false);
         }
     }
 
