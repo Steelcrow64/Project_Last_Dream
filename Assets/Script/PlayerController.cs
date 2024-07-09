@@ -123,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
     public void ExitBuild()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
         }
